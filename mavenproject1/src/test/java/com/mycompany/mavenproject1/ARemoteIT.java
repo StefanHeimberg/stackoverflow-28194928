@@ -8,16 +8,15 @@ public class ARemoteIT {
     }
     
     @org.junit.Test
-    public void test() throws javax.naming.NamingException, InterruptedException {
-        // client 1
-        final ARemote client1 = lookup(ARemote.JNDI_NAME, ARemote.class);
-        client1.doSomething();
-        
-        Thread.sleep(1000l);
-        
-        // client 2
-        final ARemote client2 = lookup(ARemote.JNDI_NAME, ARemote.class);
-        client2.doSomething();
+    public void client1() throws javax.naming.NamingException, InterruptedException {
+        // run method with timeout on C
+        lookup(ARemote.JNDI_NAME, ARemote.class).doSomething("client1", true);
+    }
+    
+    @org.junit.Test
+    public void client2() throws javax.naming.NamingException, InterruptedException {
+        // run method without timeout on C
+        lookup(ARemote.JNDI_NAME, ARemote.class).doSomething("client2", false);
     }
     
 }

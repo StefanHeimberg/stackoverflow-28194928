@@ -18,9 +18,10 @@ public class B {
         LOG.log(java.util.logging.Level.SEVERE, "B is ready to use");
     }
     
-    public void doSomething() {
-        LOG.log(java.util.logging.Level.SEVERE, "B.doSomething()");
-        c.doSomething();
+    public void doSomething(String id, boolean withTimeout) {
+        LOG.log(java.util.logging.Level.SEVERE, "[{0}]   => B.doSomething() called", id);
+        c.doSomething(id, withTimeout);
+        LOG.log(java.util.logging.Level.SEVERE, "[{0}]   => B.doSomething() finished", id);
     }
     
 }
