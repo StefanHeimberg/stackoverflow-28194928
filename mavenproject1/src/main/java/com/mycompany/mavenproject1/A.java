@@ -15,7 +15,7 @@ public class A implements ARemote {
     @javax.annotation.PostConstruct
     public void init() {
         LOG.log(java.util.logging.Level.SEVERE, "B of type {0} injected", b.getClass().getName());
-        LOG.log(java.util.logging.Level.SEVERE, "B is ready to use");
+        LOG.log(java.util.logging.Level.SEVERE, "A is ready to use");
     }
     
     @Override
